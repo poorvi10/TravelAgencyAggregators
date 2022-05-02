@@ -1,0 +1,67 @@
+<div class="booking" *ngIf="confirmation">
+  <div class="container-xs">
+    <p>Enter Booking details</p>
+    <div class="panel panel-default booking-form">
+      <div class="alert alert-danger" role="alert" *ngIf="error">{{ error }}</div>
+      <form #bookingForm = "ngForm">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="email" class="form-control" id="name" aria-describedby="name" name="name" placeholder="Enter Name" ngModel>
+        </div>
+        <div class="form-group">
+          <label for="emailId">Email address</label>
+          <input type="email" class="form-control" id="emailId" aria-describedby="emailHelp" name="email" placeholder="Enter email" ngModel>
+        </div>
+        <div class="form-group">
+          <label for="city">City</label>
+          <input type="text" class="form-control" id="city" placeholder="city" name="city" ngModel>
+        </div>
+        <div class="form-group">
+          <label>Select slot</label><br>
+          <input type="checkbox" id="slot" name="slot" value="9 A.M.">
+          <label for="slot1">9 A.M.</label><br>
+          <input type="checkbox" id="slot1" name="slot" value="10 A.M.">
+          <label for="slot2">10 A.M</label><br>
+          <input type="checkbox" id="slot2" name="slot" value="11 A.M.">
+          <label for="slot3">11 A.M</label><br>
+          <input type="checkbox" id="slot3" name="slot" value="12 A.M.">
+          <label for="slot4">12 A.M</label><br>
+          <input type="checkbox" id="slot4" name="slot" value="13 A.M.">
+          <label for="slot">13 A.M</label><br>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="container-xs">
+    <p>Enter Payment method and proceed</p>
+    <div class="panel panel-default booking-form">
+      <div class="alert alert-danger" role="alert" *ngIf="error">{{ error }}</div>
+        <div class="form-group">
+          <label>Enter Payment method and proceed</label><br>
+          <input type="checkbox" id="cod" name="cod" value="cod">
+          <label for="slot"> COD</label><br>
+        </div>
+        <button type="submit" (click)="book(bookingForm.value)" class="btn btn-primary" value="submit">Proceed</button>
+    </div>
+  </div>
+</div>
+
+<div class="card" *ngIf="!confirmation">
+  <div class="alert alert-success" role="alert">
+    Your booking is confirmed!!
+  </div>
+  <div class="card-header">
+    Booking Details
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"><img src="assets/images/car-harrier.png"></li>
+    <li class="list-group-item"><b>Travel Agency:</b> {{ bookingDetails.agencyName }}</li>
+    <li class="list-group-item"><b>Car Model:</b> {{ bookingDetails.carCompany }} - {{ bookingDetails.carName }}</li>
+    <li class="list-group-item"><b>Pickup time:</b> 9 A.M. , 2 May 2011 </li>
+    <li class="list-group-item">Check mail to get more details!</li>
+  </ul>
+</div>
+
+
+
